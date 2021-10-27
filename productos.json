@@ -4,55 +4,55 @@
         "nombre" : "Busto con cadena",
         "descripcion" : "Precioso busto inspirado en la época romana con un bonito collar de oro falso",
         "precio" : "50",
-        "imagen" : "imagenes/busco.jpg"
+        "imagen_small" : "imagenes/busto.jpg"
     },
     {
         "id" : "2",
         "nombre" : "Cámara Nikon",
         "descripcion" : "Cámara Nikon FG de los años 90 con el objetivo de 50mm",
         "precio" : "150",
-        "imagen" : "imagenes/camara_nikon.jpg"
+        "imagen_small" : "imagenes/camara_nikon.jpg"
     },
     {
         "id" : "3",
         "nombre" : "Busto con cadena",
         "descripcion" : "Cámara Fujifilm X-T10 con el objetivo 18-55mm",
         "precio" : "200",
-        "imagen" : "imagenes/camara.jpg"
+        "imagen_small" : "imagenes/camara.jpg"
     },
     {
         "id" : "4",
         "nombre" : "Helado de juguete",
         "descripcion" : "Juguete con forma de helado muy colorido. En buen estado",
         "precio" : "20",
-        "imagen" : "imagenes/helado.jpg"
+        "imagen_small" : "imagenes/helado.jpg"
     },
     {
         "id" : "5",
         "nombre" : "Jabón ecológico",
         "descripcion" : "Jabón ecológico casero hecho con derivados vegetales. No testado en animales.",
         "precio" : "5",
-        "imagen" : "imagenes/jabon.jpg"
+        "imagen_small" : "imagenes/jabon.jpg"
     },
     {
         "id" : "6",
         "nombre" : "Set de maquillaje",
         "descripcion" : "Set de maquillaje de marcas varias, a estrenar. Carrito de la compra incluido.",
         "precio" : "15",
-        "imagen" : "imagenes/maquillaje.jpg"
+        "imagen_small" : "imagenes/maquillaje.jpg"
     },
     {
         "id" : "7",
         "nombre" : "Perfume Gucci",
         "descripcion" : "Botella de perfume Gucci Flora sin estrenar. La vendo porque no me convence el olor.",
         "precio" : "30",
-        "imagen" : "imagenes/perfume.jpg"
+        "imagen_small" : "imagenes/perfume.jpg"
     },
     {
         "id" : "8",
         "nombre" : "Uvas falses",
         "descripcion" : "Precioso racimo de uvas falsas. Ideal para atrezo fotográfico.",
         "precio" : "8",
-        "imagen" : "imagenes/uvas_falsas.jpg"
+        "imagen_small" : "imagenes/uvas_falsas.jpg"
     }
 ]

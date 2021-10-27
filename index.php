@@ -7,8 +7,19 @@
     <meta name="author" content="Daniel Lorenzo">
     <meta name="keywords" content="PHP, Catalogo">
     <title>Catálogo</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+    <div class="wrapper">
+        <?php include_once 'funciones.php'; 
+        
+            crearProductos();
+        
+        
+        
+        ?>
+
+    </div>
     
 </body>
 </html>

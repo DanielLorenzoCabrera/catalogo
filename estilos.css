@@ -1,0 +1,21 @@
+.wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+   
+    max-width: 70%;
+}
+
+.wrapper > a{
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 300px;
+    outline: .1em solid black;
+    margin: .5em;
+    
+}
+
+.wrapper > a > *{
+    margin: .5em;
+}
