@@ -3,19 +3,47 @@
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
-   
     max-width: 70%;
+
+    /*display: none;*/
 }
 
-.wrapper > a{
+.wrapper > div{
     display: flex;
     flex-flow: column nowrap;
     max-width: 300px;
     outline: .1em solid black;
     margin: .5em;
+    text-decoration: none;
     
 }
 
-.wrapper > a > *{
+.wrapper > div > *{
     margin: .5em;
+}
+
+i{
+    cursor: pointer;
+    width: 30px;
+    font-size: 2em;
+    color: rgb(255, 56, 56);
+    
+}
+
+
+i{
+    cursor: pointer;
+    width: 30px;
+    font-size: 2em;
+    
+}
+
+/*.permisoDenegado{
+    
+}*/
+
+
+#volverPantallaCookies{
+    color: rgb(38, 0, 251);
+    cursor: pointer;
 }
