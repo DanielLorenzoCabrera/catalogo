@@ -30,7 +30,6 @@ i{
     
 }
 
-
 i{
     cursor: pointer;
     width: 30px;
@@ -38,12 +37,13 @@ i{
     
 }
 
-/*.permisoDenegado{
-    
-}*/
-
 
 #volverPantallaCookies{
     color: rgb(38, 0, 251);
     cursor: pointer;
+}
+
+.permisoDenegado{
+    display: none;
+   
 }
