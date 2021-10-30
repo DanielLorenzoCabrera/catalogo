@@ -7,6 +7,11 @@
     <title>Busto</title>
 </head>
 <body>
+    <?php
+    include_once "../vistos.php";
+    
+
+?>
     
 </body>
 </html>
