@@ -33,20 +33,38 @@ $PRODUCTOS = getJSON('./productos.json');
         echo "</div>";
    }
 
+
+   function actualizarVistos(){
+     $id_producto = "id" . $_REQUEST["id"];
+     
+
+     if(isset($_COOKIE["vistos"]) && $_COOKIE["vistos"] !== ""){
+         $contenido = json_decode($_COOKIE["vistos"],true) ;
+         isset($contenido[$id_producto]) && !empty($contenido[$id_producto]) ? $contenido[$id_producto]++ : $contenido[$id_producto] = 1;
+         $resultado = json_encode($contenido);
+         setcookie("vistos", $resultado, time() + 3600);
+         //var_dump($_COOKIE["vistos"]);
+     }else{
+         $contenido[$id_producto] = "1";
+         $resultado = json_encode($contenido);
+         setcookie("vistos", $resultado, time() + 3600);
+     }
+
+ }
+
    
    function mostrarProducto($PRODUCTOS,$id_producto){
-     //$producto = $PRODUCTOS[0];
-     //var_dump($PRODUCTOS);
-     echo "hola";
-/*
+     $producto = $PRODUCTOS[$id_producto];
+    
      echo "<article id='articulo_{$id_producto}' >";
      echo "<img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'>";
+     echo "<section class='descripcion'>";
      echo "<p class='precio'>{$producto['precio']} € </p>";
      echo "<i class='far fa-heart'></i>";
      echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
      echo "<p class='descripcion'>{$producto['descripcion']}</p>";
+     echo "</section>";
      echo "</article>";
-      */
      
  }
    

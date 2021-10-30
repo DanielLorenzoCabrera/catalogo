@@ -1,66 +1,66 @@
 [
     {
-        "id" : "1",
+        "id" : "0",
         "nombre" : "Busto con cadena",
         "descripcion" : "Precioso busto inspirado en la época romana con un bonito collar de oro falso",
         "precio" : "50",
         "imagen_small" : "imagenes/busto.jpg",
-        "nombre_ruta" : "paginas/busto.php"
+        "nombre_ruta" : "busto.php"
     },
     {
-        "id" : "2",
+        "id" : "1",
         "nombre" : "Cámara Nikon",
         "descripcion" : "Cámara Nikon FG de los años 90 con el objetivo de 50mm",
         "precio" : "150",
         "imagen_small" : "imagenes/camara_nikon.jpg",
-        "nombre_ruta" : "paginas/nikon.php"
+        "nombre_ruta" : "nikon.php"
     },
     {
-        "id" : "3",
+        "id" : "2",
         "nombre" : "Busto con cadena",
         "descripcion" : "Cámara Fujifilm X-T10 con el objetivo 18-55mm",
         "precio" : "200",
         "imagen_small" : "imagenes/camara.jpg",
-        "nombre_ruta" : "paginas/fujifilm.php"
+        "nombre_ruta" : "fujifilm.php"
     },
     {
-        "id" : "4",
+        "id" : "3",
         "nombre" : "Helado de juguete",
         "descripcion" : "Juguete con forma de helado muy colorido. En buen estado",
         "precio" : "20",
         "imagen_small" : "imagenes/helado.jpg",
-        "nombre_ruta" : "paginas/helado.php"
+        "nombre_ruta" : "helado.php"
     },
     {
-        "id" : "5",
+        "id" : "4",
         "nombre" : "Jabón ecológico",
         "descripcion" : "Jabón ecológico casero hecho con derivados vegetales. No testado en animales.",
         "precio" : "5",
         "imagen_small" : "imagenes/jabon.jpg",
-        "nombre_ruta" : "paginas/jabon.php"
+        "nombre_ruta" : "jabon.php"
     },
     {
-        "id" : "6",
+        "id" : "5",
         "nombre" : "Set de maquillaje",
         "descripcion" : "Set de maquillaje de marcas varias, a estrenar. Carrito de la compra incluido.",
         "precio" : "15",
         "imagen_small" : "imagenes/maquillaje.jpg",
-        "nombre_ruta" : "paginas/maquillaje.php"
+        "nombre_ruta" : "maquillaje.php"
     },
     {
-        "id" : "7",
+        "id" : "6",
         "nombre" : "Perfume Gucci",
         "descripcion" : "Botella de perfume Gucci Flora sin estrenar. La vendo porque no me convence el olor.",
         "precio" : "30",
         "imagen_small" : "imagenes/perfume.jpg",
-        "nombre_ruta" : "paginas/perfume.php"
+        "nombre_ruta" : "perfume.php"
     },
     {
-        "id" : "8",
+        "id" : "7",
         "nombre" : "Uvas falses",
         "descripcion" : "Precioso racimo de uvas falsas. Ideal para atrezo fotográfico.",
         "precio" : "8",
         "imagen_small" : "imagenes/uvas_falsas.jpg",
-        "nombre_ruta" : "paginas/uvas.php"
+        "nombre_ruta" : "uvas.php"
     }
 ]
