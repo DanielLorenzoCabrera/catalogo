@@ -4,13 +4,13 @@ $POLITICA_COOKIES = "<p> Las cookies de este sitio web se usan para personalizar
 
    function crearProductos(){
        $PRODUCTOS = getJSON('./productos.json');
-       echo "<div class='wrapper'>";
+       echo "<div class='productos'>";
         foreach($PRODUCTOS as $producto){
             echo "<div class='producto' >";
-            echo "<img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'>";
+            echo "<a href='{$producto['nombre_ruta']}'><img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'></a>";
             echo "<p class='precio'>{$producto['precio']} € </p>";
             echo "<i class='far fa-heart'></i>";
-            echo "<p class='nombre'>{$producto['nombre']}</p>";
+            echo "<a href='{$producto['nombre_ruta']}' class='nombre'>{$producto['nombre']}</a>";
             echo "<p class='descripcion'>{$producto['descripcion']}</p>";
             echo "</div>";
         }

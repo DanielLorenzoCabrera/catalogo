@@ -1,6 +1,12 @@
 .wrapper{
     display: flex;
     flex-flow: row wrap;
+}
+
+
+.productos{
+    display: flex;
+    flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
     max-width: 70%;
@@ -8,18 +14,29 @@
     /*display: none;*/
 }
 
-.wrapper > div{
+.productos > div{
     display: flex;
     flex-flow: column nowrap;
     max-width: 300px;
     outline: .1em solid black;
     margin: .5em;
     text-decoration: none;
+    padding: .2em;
     
 }
 
-.wrapper > div > *{
-    margin: .5em;
+.productos > div > *{
+    margin: .2em;
+}
+
+.productos > div > a{
+    display: flex;
+    max-width: 100%;
+}
+
+
+img{
+    max-width: 100%;
 }
 
 i{
@@ -27,13 +44,6 @@ i{
     width: 30px;
     font-size: 2em;
     color: rgb(255, 56, 56);
-    
-}
-
-i{
-    cursor: pointer;
-    width: 30px;
-    font-size: 2em;
     
 }
 
@@ -45,5 +55,4 @@ i{
 
 .permisoDenegado{
     display: none;
-   
 }

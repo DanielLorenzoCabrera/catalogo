@@ -8,8 +8,6 @@
     }else{
         mostrarPoliticaCookies($POLITICA_COOKIES);
         setcookie("politica","aceptada", time() + 3600);
-        
-
     }
 
     
