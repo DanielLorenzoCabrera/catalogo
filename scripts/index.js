@@ -23,7 +23,7 @@ $(document).ready(function(){
     $("#aceptar").click(function(event){
         event.preventDefault();
         $.get("controlador.php").done(function(data){
-           $("#contenido").append(data);
+           $(".wrapper").append(data);
            $(".politica").css("display","none");
         })
 

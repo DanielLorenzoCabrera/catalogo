@@ -1,6 +1,21 @@
+html{
+    background-color: lightgreen;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
 .wrapper{
     display: flex;
     flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+
 }
 
 
@@ -9,19 +24,24 @@
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
-    max-width: 70%;
-
-    /*display: none;*/
+    width: 70%;
+    flex:3;
+    
 }
 
-.productos > div{
+.productos > h1, #vistos > h2{
+    width: 100%;
+    text-align: center;
+}
+
+.producto{
     display: flex;
     flex-flow: column nowrap;
     max-width: 300px;
-    outline: .1em solid black;
-    margin: .5em;
+    margin: .5em 0;
     text-decoration: none;
     padding: .2em;
+    background-color: mintcream;
     
 }
 
@@ -58,6 +78,7 @@ img{
 }
 
 
+
 .producto > section{
     display: flex;
     flex-flow: row nowrap;
@@ -68,3 +89,23 @@ img{
 .producto > section > *{
     margin: .5em;
 }
+
+
+#vistos{
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: mintcream;
+
+}
+
+
+
+#vistos > article{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 40%;
+    margin: .5em;
+}
+

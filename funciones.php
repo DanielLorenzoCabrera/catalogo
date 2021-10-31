@@ -7,6 +7,7 @@ $PRODUCTOS = getJSON('./productos.json');
 
    function crearProductos($PRODUCTOS){
        echo "<div class='productos'>";
+       echo "<h1>Productos</h1>";
         foreach($PRODUCTOS as $producto){
             echo "<div class='producto' >";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'></a>";
@@ -71,10 +72,15 @@ $PRODUCTOS = getJSON('./productos.json');
  function mostrarVistos($PRODUCTOS){
      //var_dump($PRODUCTOS);
     if(isset($_COOKIE["vistos"])){
-        $vistos = array_unique(json_decode($_COOKIE["vistos"],true));
+        $vistos = json_decode($_COOKIE["vistos"],true);
+        echo "<h2>Productos vistos</h2>";
         foreach($vistos as $clave => $visto){
-    
-            echo "<img src='{$PRODUCTOS[$visto]['imagen_small']}'>";
+            echo "<article>";
+            $producto= $PRODUCTOS[substr($clave,-1,1)];
+            echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}'></a>";
+            echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'>{$producto['nombre']}</a>";
+            echo "<span>{$producto['precio']} €</span>";
+            echo "</article>";
         }
     }
  }
