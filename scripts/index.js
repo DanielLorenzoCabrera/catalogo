@@ -30,7 +30,7 @@ $(document).ready(function(){
     })
     
 
-    $("i").click(function(event){
+    $(".fa-heart").click(function(event){
         event.preventDefault(event);
         $(this).toggleClass("far fas");
     })

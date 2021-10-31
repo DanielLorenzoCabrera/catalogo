@@ -10,8 +10,10 @@ $PRODUCTOS = getJSON('./productos.json');
         foreach($PRODUCTOS as $producto){
             echo "<div class='producto' >";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'></a>";
+            echo "<section>";
             echo "<p class='precio'>{$producto['precio']} € </p>";
             echo "<i class='far fa-heart'></i>";
+            echo "</section>";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
             echo "<p class='descripcion'>{$producto['descripcion']}</p>";
             echo "</div>";
@@ -36,14 +38,12 @@ $PRODUCTOS = getJSON('./productos.json');
 
    function actualizarVistos(){
      $id_producto = "id" . $_REQUEST["id"];
-     
 
      if(isset($_COOKIE["vistos"]) && $_COOKIE["vistos"] !== ""){
          $contenido = json_decode($_COOKIE["vistos"],true) ;
          isset($contenido[$id_producto]) && !empty($contenido[$id_producto]) ? $contenido[$id_producto]++ : $contenido[$id_producto] = 1;
          $resultado = json_encode($contenido);
          setcookie("vistos", $resultado, time() + 3600);
-         //var_dump($_COOKIE["vistos"]);
      }else{
          $contenido[$id_producto] = "1";
          $resultado = json_encode($contenido);
@@ -61,11 +61,22 @@ $PRODUCTOS = getJSON('./productos.json');
      echo "<section class='descripcion'>";
      echo "<p class='precio'>{$producto['precio']} € </p>";
      echo "<i class='far fa-heart'></i>";
-     echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
+     echo "<p class='nombre'>{$producto['nombre']}</p>";
      echo "<p class='descripcion'>{$producto['descripcion']}</p>";
      echo "</section>";
      echo "</article>";
      
+ }
+
+ function mostrarVistos($PRODUCTOS){
+     //var_dump($PRODUCTOS);
+    if(isset($_COOKIE["vistos"])){
+        $vistos = array_unique(json_decode($_COOKIE["vistos"],true));
+        foreach($vistos as $clave => $visto){
+    
+            echo "<img src='{$PRODUCTOS[$visto]['imagen_small']}'>";
+        }
+    }
  }
    
 

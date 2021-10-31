@@ -39,7 +39,7 @@ img{
     max-width: 100%;
 }
 
-i{
+.heart{
     cursor: pointer;
     width: 30px;
     font-size: 2em;
@@ -55,4 +55,16 @@ i{
 
 .permisoDenegado{
     display: none;
+}
+
+
+.producto > section{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.producto > section > *{
+    margin: .5em;
 }
