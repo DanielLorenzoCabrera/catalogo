@@ -18,7 +18,7 @@
     <?php
         include_once "funciones.php";
         actualizarVistos();
-        var_dump($_REQUEST);
+       
         mostrarProducto($PRODUCTOS,$_REQUEST["id"]);
 
     ?>

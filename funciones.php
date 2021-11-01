@@ -63,7 +63,7 @@ $PRODUCTOS = getJSON('./productos.json');
      echo "<section class='descripcion'>";
      echo "<p class='precio'>{$producto['precio']} € </p>";
      $clase_corazon = actualizarCorazon($producto['id']);
-     echo "<i class='fa-heart {$clase_corazon}'></i>";
+     echo "<i class='fa-heart {$clase_corazon}' data-id='{$producto['id']}'></i>";
      echo "<p class='nombre'>{$producto['nombre']}</p>";
      echo "<p class='descripcion'>{$producto['descripcion']}</p>";
      echo "</section>";
@@ -80,7 +80,7 @@ $PRODUCTOS = getJSON('./productos.json');
             $producto= $PRODUCTOS[substr($clave,-1,1)];
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}'></a>";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'>{$producto['nombre']}</a>";
-            echo "<span>{$producto['precio']} €</span>";
+            echo "<span class='precio'>{$producto['precio']} €</span>";
             echo "</article>";
         }
     }

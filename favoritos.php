@@ -2,9 +2,6 @@
 
 $id_producto =  $_REQUEST["id"];
 
-//!isset($_COOKIE["favoritos"]) ? setcookie("favoritos, " ", time() + 3600) : ' ';
-
-
 if(isset($_COOKIE["favoritos"]) && $_COOKIE["favoritos"] !== ""){
     $contenido = json_decode($_COOKIE["favoritos"],true) ;
     if(isset($contenido[$id_producto]) && !empty($contenido[$id_producto])){

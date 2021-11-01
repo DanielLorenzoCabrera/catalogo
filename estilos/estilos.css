@@ -1,11 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Space+Mono&display=swap');
+
+:root{
+    --title_font : 'Righteous', cursive;
+    --text_font : 'Space Mono', monospace;
+    --main_color : #41d0e5;
+}
+
+
 html{
-    background-color: lightgreen;
+    background-color: var(--main_color);
 }
 
 
 a{
     text-decoration: none;
+    font-family: var(--title_font);
+    color: var(--main_color);
+    
 }
+
+a:hover{
+    transform: scale(.98);
+    
+}
+
+i{
+    color: red !important;
+}
+
+
+
+h1,h2,h3,h4,.precio{
+    font-family: var(--title_font);
+}
+
+h1{
+    color: #fff;
+    
+}
+
+p{
+    font-family: var(--text_font);
+}
+
 
 
 .wrapper{
@@ -24,7 +61,7 @@ a{
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
-    width: 70%;
+    width: 100%;
     flex:3;
     
 }
@@ -64,6 +101,20 @@ img{
     width: 30px;
     font-size: 2em;
     color: rgb(255, 56, 56);
+    
+}
+
+.politica a{
+    color: #fff;
+    outline: .1em solid #fff;
+    padding: .5em;
+    margin: 0 .3em;
+}
+
+.politica a:hover{
+    color: var(--main_color);
+    background-color: #fff;
+    outline: .1em solid #fff;
     
 }
 
@@ -116,6 +167,7 @@ img{
     flex-flow: row wrap;
     width: 50%;
     margin: 0 auto;
+    flex : 1;
 }
 
 #favoritos > h2{
@@ -130,4 +182,8 @@ img{
 
 #favoritos > article span{
     margin: 0 .4em;
+}
+
+.fa-heart{
+    color: var(--main_color);
 }
