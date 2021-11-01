@@ -107,5 +107,27 @@ img{
     flex-flow: column nowrap;
     width: 40%;
     margin: .5em;
+    text-align: center;
 }
 
+
+#favoritos{
+    display: flex;
+    flex-flow: row wrap;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#favoritos > h2{
+    width: 100%;
+    text-align: center;
+}
+
+#favoritos > article {
+    flex: 1;
+    text-align: center;
+}
+
+#favoritos > article span{
+    margin: 0 .4em;
+}

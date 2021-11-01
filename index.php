@@ -21,7 +21,7 @@
         
         <div id="vistos">
             <?php 
-            
+           
             mostrarVistos($PRODUCTOS); ?>
         </div>
     </div>
@@ -29,7 +29,12 @@
             <h1>Acceso a la página denegado</h1>
             <p>Debe de aceptar la política de cookies si desea navegar en nuestro sitio web. 
             Si desea reconsiderar su decisión acerda de nuestra política de cookies <span id='volverPantallaCookies'>pulse aquí</span></p>
-        </div>
+    </div>
+    <div id="favoritos">
+    <?php 
+           mostrarFavoritos($PRODUCTOS);
+    ?>
+    </div>
 
     
 </body>

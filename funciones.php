@@ -13,7 +13,8 @@ $PRODUCTOS = getJSON('./productos.json');
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'></a>";
             echo "<section>";
             echo "<p class='precio'>{$producto['precio']} € </p>";
-            echo "<i class='far fa-heart'></i>";
+            $clase_corazon = actualizarCorazon($producto['id']);
+            echo "<i class='fa-heart {$clase_corazon}' data-id='{$producto['id']}'></i>";
             echo "</section>";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
             echo "<p class='descripcion'>{$producto['descripcion']}</p>";
@@ -61,7 +62,8 @@ $PRODUCTOS = getJSON('./productos.json');
      echo "<img src='{$producto['imagen_small']}' alt='{$producto['nombre']}'>";
      echo "<section class='descripcion'>";
      echo "<p class='precio'>{$producto['precio']} € </p>";
-     echo "<i class='far fa-heart'></i>";
+     $clase_corazon = actualizarCorazon($producto['id']);
+     echo "<i class='fa-heart {$clase_corazon}'></i>";
      echo "<p class='nombre'>{$producto['nombre']}</p>";
      echo "<p class='descripcion'>{$producto['descripcion']}</p>";
      echo "</section>";
@@ -70,7 +72,6 @@ $PRODUCTOS = getJSON('./productos.json');
  }
 
  function mostrarVistos($PRODUCTOS){
-     //var_dump($PRODUCTOS);
     if(isset($_COOKIE["vistos"])){
         $vistos = json_decode($_COOKIE["vistos"],true);
         echo "<h2>Productos vistos</h2>";
@@ -84,6 +85,31 @@ $PRODUCTOS = getJSON('./productos.json');
         }
     }
  }
+
+
+ function mostrarFavoritos($PRODUCTOS){
+   if(isset($_COOKIE["favoritos"])){
+       $favoritos = json_decode($_COOKIE["favoritos"],true);
+       echo "<h2>Productos favoritos</h2>";
+       foreach($favoritos as $clave => $favorito){
+           echo "<article>";
+           $producto = $PRODUCTOS[$clave];
+           echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}'></a>";
+           echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'>{$producto['nombre']}</a>";
+           echo "<span>{$producto['precio']} €</span>";
+           echo "</article>";
+       }
+   }
+}
    
+
+function actualizarCorazon($id_producto){
+    $resultado = 'far';
+    if(isset($_COOKIE["favoritos"])){
+        $favoritos = json_decode($_COOKIE["favoritos"],true);
+        $resultado = array_key_exists($id_producto,$favoritos) ? "fas" : "far";
+    }
+    return $resultado;
+}
 
 ?>
