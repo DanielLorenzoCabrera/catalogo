@@ -13,18 +13,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <header>
+        <a href='index.php'><p>telo<span>COMPRO</span></p></a>
+    </header>
     <div class="wrapper">
         <?php  
             include_once "funciones.php" ;
             !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS);
         ?>
+        <aside>
+            <article id="vistos">
+                <?php 
+                isset($_COOKIE["politica"]) ? mostrarVistos($PRODUCTOS) : ''; 
+                ?>
+            </article>
+            <article id="favoritos">
+                <?php isset($_COOKIE["politica"]) ? mostrarFavoritos($PRODUCTOS) : '';?>
+            </article>
+        </aside>
         
-        <div id="vistos">
-            <?php mostrarVistos($PRODUCTOS); ?>
-        </div>
-        <div id="favoritos">
-            <?php mostrarFavoritos($PRODUCTOS);?>
-        </div>
     </div>
     <div class="permisoDenegado">
             <h1>Acceso a la página denegado</h1>

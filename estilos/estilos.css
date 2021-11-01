@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
+
 
 :root{
     --title_font : 'Righteous', cursive;
     --text_font : 'Space Mono', monospace;
     --main_color : #41d0e5;
+    --second_color : #36aec0;
 }
 
 
@@ -12,10 +15,11 @@ html{
 }
 
 
+
 a{
     text-decoration: none;
     font-family: var(--title_font);
-    color: var(--main_color);
+    color: var(--second_color);
     
 }
 
@@ -24,14 +28,40 @@ a:hover{
     
 }
 
-i{
-    color: red !important;
+body > a > i{
+    background-color: var(--second_color);
+    color: #fff;
+    
+    padding: .5em .6em;
+    margin:  .5em 0 0 .5em;
+    font-size: 1.5em;
+    border-radius: 50%;
+}
+
+body > a > i:hover{
+    background-color: #fff;
+    color: var(--second_color);
+   
 }
 
 
 
-h1,h2,h3,h4,.precio{
+h1,h2,h3,h4,.precio, span, header>p{
     font-family: var(--title_font);
+}
+
+
+
+header > a > p{
+    color: #fff;
+    display: inline-block;
+    font-family: var(--title_font);
+    font-size: 2em;
+    margin: .5em ;
+}
+
+header > a > p >span{
+    font-family: 'Fruktur', cursive;
 }
 
 h1{
@@ -61,14 +91,15 @@ p{
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
-    width: 100%;
+    min-width: 300px;
     flex:3;
     
 }
 
-.productos > h1, #vistos > h2{
+.productos > h1, #vistos > h2, #favoritos > h2{
     width: 100%;
     text-align: center;
+    margin: .5em 0;
 }
 
 .producto{
@@ -120,8 +151,9 @@ img{
 
 
 #volverPantallaCookies{
-    color: rgb(38, 0, 251);
+    color: #fff;
     cursor: pointer;
+    border-bottom: .1em solid #fff;
 }
 
 .permisoDenegado{
@@ -135,6 +167,7 @@ img{
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    max-width: 300px;
 }
 
 .producto > section > *{
@@ -146,39 +179,42 @@ img{
     flex: 1;
     display: flex;
     flex-flow: row wrap;
+    min-width: 300px;
     justify-content: space-around;
     background-color: mintcream;
+    margin: 1em 0;
 
 }
 
 
 
-#vistos > article{
+#vistos > section, #favoritos > section{
     display: flex;
     flex-flow: column nowrap;
-    width: 40%;
+    max-width: 40%;
     margin: .5em;
     text-align: center;
+}
+
+#vistos img, #favoritos img{
+    border-radius: 50%;
 }
 
 
 #favoritos{
     display: flex;
     flex-flow: row wrap;
-    width: 50%;
+    min-width: 300px;
     margin: 0 auto;
     flex : 1;
+    justify-content: space-around;
+    background-color: mintcream;
 }
-
-#favoritos > h2{
-    width: 100%;
-    text-align: center;
-}
-
+/*
 #favoritos > article {
     flex: 1;
     text-align: center;
-}
+}*/
 
 #favoritos > article span{
     margin: 0 .4em;
@@ -186,4 +222,58 @@ img{
 
 .fa-heart{
     color: var(--main_color);
+    font-size: 1.5em;
+    color: #e74646;
+}
+
+
+aside{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 300px;
+}
+
+.individual{
+    max-width: 1024px;
+    margin: 1em auto;
+    background-color: #fff;
+    padding: 1em;
+}
+
+.individual i{
+    font-size: 2em;
+}
+
+.individual p{
+    font-size: 1.5em;
+}
+
+article[id]{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+    
+}
+
+article[id] > *{
+    margin: 0 .5em;
+}
+
+.individual img{
+    flex: 1;
+    max-width: 300px;
+    
+}
+
+.individual .precio{
+    font-size: 2em;
+    display: inline-block;
+}
+
+.descripcion{
+    display: flex;
+    flex-flow: column wrap;
+    flex: 2;
 }

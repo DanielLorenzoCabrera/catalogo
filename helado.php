@@ -12,16 +12,18 @@
 
 </head>
 <body>
-    <header>
-        <a href="index.php"><i class="fas fa-chevron-left"></i></a>
-    </header>
+<header>
+    <a href='index.php'><p>telo<span>COMPRO</span></p></a>
+</header>
+<a href="index.php"><i class="fas fa-chevron-left"></i></a>
+    <section class="individual">
     <?php
         include_once "funciones.php";
         actualizarVistos();
-       
         mostrarProducto($PRODUCTOS,$_REQUEST["id"]);
-
     ?>
+
+    </section>
     
 </body>
 </html>

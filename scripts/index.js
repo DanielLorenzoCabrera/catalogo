@@ -23,8 +23,9 @@ $(document).ready(function(){
     $("#aceptar").click(function(event){
         event.preventDefault();
         $.get("controlador.php").done(function(data){
-           $(".wrapper").append(data);
-           $(".politica").css("display","none");
+            $(".politica").css("display","none");
+            $(".wrapper").append(data);
+           
         })
 
     })
@@ -34,7 +35,7 @@ $(document).ready(function(){
         event.preventDefault(event);
         $(this).toggleClass("far fas");
         $.post( "favoritos.php", { id: this.dataset.id} );
-        console.log(this.dataset.id);
+
 
     })
 
