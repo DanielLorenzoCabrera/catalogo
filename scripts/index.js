@@ -27,7 +27,6 @@ $(document).ready(function(){
             $(".wrapper").append(data);
            
         })
-
     })
     
 
@@ -35,8 +34,6 @@ $(document).ready(function(){
         event.preventDefault(event);
         $(this).toggleClass("far fas");
         $.post( "favoritos.php", { id: this.dataset.id} );
-
-
     })
 
 
