@@ -7,7 +7,7 @@ if(!isset($_SESSION["productos"])){
     $_SESSION["productos_carro"] = [];
 }
 
-$_SESSION["productos_carro"][$id] = [];
+array_push($_SESSION["productos_carro"],$id);
 
 
 
