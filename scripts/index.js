@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 
     $(".agregarProducto").click(function(event){
-       
+        $.post( "carrito.php", { id: this.dataset.id} );
 
 
 

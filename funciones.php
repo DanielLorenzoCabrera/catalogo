@@ -115,8 +115,11 @@ function actualizarCorazon($id_producto){
 
 
 
-function gestionarSesion(){
-    if($_SESSION)
+function crearSesion(){
+    session_start();
+    if(!isset($_SESSION["iniciada"])){
+        $_SESSION["iniciada"] = true;
+    }
 }
 
 ?>

@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <?php include_once "funciones.php" ?> 
+    <?php 
+        include_once "funciones.php";
+        crearSesion();
+     ?> 
     <header>
         <a href='index.php'><p>telo<span>COMPRO</span></p></a>
         <i class="fas fa-shopping-cart"></i>
@@ -38,7 +41,7 @@
             Si desea reconsiderar su decisión acerda de nuestra política de cookies <span id='volverPantallaCookies'>pulse aquí</span></p>
     </div>
     
-
+    
     
 </body>
 </html>
