@@ -18,6 +18,7 @@ $PRODUCTOS = getJSON('./productos.json');
             echo "</section>";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
             echo "<p class='descripcion'>{$producto['descripcion']}</p>";
+            echo "<button class='agregarProducto' data-id='{$producto['id']}' >Añadir al carrito</button>";
             echo "</div>";
         }
         echo "</div>";
@@ -110,6 +111,12 @@ function actualizarCorazon($id_producto){
         $resultado = array_key_exists($id_producto,$favoritos) ? "fas" : "far";
     }
     return $resultado;
+}
+
+
+
+function gestionarSesion(){
+    if($_SESSION)
 }
 
 ?>

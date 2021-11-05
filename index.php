@@ -13,14 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <?php include_once "funciones.php" ?> 
     <header>
         <a href='index.php'><p>telo<span>COMPRO</span></p></a>
+        <i class="fas fa-shopping-cart"></i>
     </header>
     <div class="wrapper">
-        <?php  
-            include_once "funciones.php" ;
-            !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS);
-        ?>
+        <?php !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); ?>
         <aside>
             <article id="vistos">
                 <?php 

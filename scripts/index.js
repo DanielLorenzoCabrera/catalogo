@@ -13,7 +13,7 @@ $(document).ready(function(){
     // Ocultar el error y mostrar la política de cookies
 
     $("#volverPantallaCookies").click(function(event){
-        event.preventDefault();
+        //event.preventDefault();
         $(".permisoDenegado").css("display","none");
         $(".politica").css("display","initial");
     }) 
@@ -21,7 +21,7 @@ $(document).ready(function(){
     // mostrar contenido al aceptar cookies desde el fichero php
     
     $("#aceptar").click(function(event){
-        event.preventDefault();
+        //event.preventDefault();
         $.get("controlador.php").done(function(data){
             $(".politica").css("display","none");
             $(".wrapper").append(data);
@@ -31,9 +31,17 @@ $(document).ready(function(){
     
 
     $(".fa-heart").click(function(event){
-        event.preventDefault(event);
+        //event.preventDefault();
         $(this).toggleClass("far fas");
         $.post( "favoritos.php", { id: this.dataset.id} );
+    })
+
+
+    $(".agregarProducto").click(function(event){
+       
+
+
+
     })
 
 

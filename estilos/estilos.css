@@ -43,6 +43,20 @@ body > a > i:hover{
    
 }
 
+header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > .fa-shopping-cart{
+    font-size: 1.5em;
+    color: #fff;
+    margin: 0 1em;
+    cursor: pointer;
+}
+
 
 
 h1,h2,h3,h4,.precio, span, header>p{
@@ -262,4 +276,16 @@ aside{
     display: flex;
     flex-flow: column wrap;
     flex: 2;
+}
+
+
+.agregarProducto{
+    border: 0 ;
+    padding: .5em 0;
+    background-color: var(--second_color);
+    cursor: pointer;
+}
+
+.agregarProducto:active{
+    transform: scale(.98);
 }
