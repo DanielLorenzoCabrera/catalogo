@@ -18,7 +18,8 @@ $PRODUCTOS = getJSON('./productos.json');
             echo "</section>";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
             echo "<p class='descripcion'>{$producto['descripcion']}</p>";
-            echo "<button class='agregarProducto' data-id='{$producto['id']}' >Añadir al carrito</button>";
+            $clase_agregado =  actualizarAgregados($producto["id"]);
+            echo "<button class='agregarProducto {$clase_agregado}' data-id='{$producto['id']}' >Añadir al carrito</button>";
             echo "</div>";
         }
         echo "</div>";
@@ -120,6 +121,16 @@ function crearSesion(){
     if(!isset($_SESSION["iniciada"])){
         $_SESSION["iniciada"] = true;
     }
+}
+
+
+
+function actualizarAgregados($id_producto){
+    $resultado = '';
+    if(isset($_SESSION["productos_carro"])){
+        array_key_exists($id_producto, $_SESSION["productos_carro"]) ? $resultado = "productoAgregado" : "";
+    }
+    return $resultado;
 }
 
 ?>
