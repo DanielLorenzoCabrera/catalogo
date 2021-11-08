@@ -40,7 +40,12 @@ $(document).ready(function(){
 
     $(".agregarProducto").click(function(event){
         $.post( "carrito.php", { id: this.dataset.id} );
-
+        $(this).toggleClass("productoAgregado ");
+        if($(this).hasClass("productoAgregado")){
+            $(this).text("Agregado");
+        }else{
+            $(this).text("Añadir al carrito");
+        }
 
 
     })

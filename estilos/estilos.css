@@ -294,3 +294,7 @@ aside{
 .agregarProducto:active{
     transform: scale(.98);
 }
+
+.productoAgregado{
+    background-color: violet;
+}
