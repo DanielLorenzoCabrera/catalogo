@@ -50,11 +50,16 @@ header{
     align-items: center;
 }
 
-header > .fa-shopping-cart{
+header > a >.fa-shopping-cart{
     font-size: 1.5em;
     color: #fff;
     margin: 0 1em;
     cursor: pointer;
+}
+
+header > a >.fa-shopping-cart:hover{
+    color: rgb(195, 195, 195);
+  
 }
 
 

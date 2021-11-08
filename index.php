@@ -13,16 +13,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <?php 
-        include_once "funciones.php";
-        crearSesion();
-     ?> 
     <header>
         <a href='index.php'><p>telo<span>COMPRO</span></p></a>
-        <i class="fas fa-shopping-cart"></i>
+        <a href="carrito.php"><i class="fas fa-shopping-cart"></i></a> 
     </header>
     <div class="wrapper">
-        <?php !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); ?>
+        <?php 
+        include_once "funciones.php";
+        crearSesion();
+        !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); ?>
         <aside>
             <article id="vistos">
                 <?php 
@@ -41,11 +40,10 @@
             Si desea reconsiderar su decisión acerda de nuestra política de cookies <span id='volverPantallaCookies'>pulse aquí</span></p>
     </div>
     
-    
     <?php
-        if(isset($_SESSION)){
-            var_dump($_SESSION);
-        }
-    ?>
+    
+
+?>
+    
 </body>
 </html>

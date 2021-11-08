@@ -25,6 +25,7 @@ $(document).ready(function(){
         $.get("controlador.php").done(function(data){
             $(".politica").css("display","none");
             $(".wrapper").append(data);
+            location.reload();
            
         })
     })

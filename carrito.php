@@ -3,12 +3,12 @@ session_start();
 
 $id = $_REQUEST["id"];
 
-if(!isset($_SESSION["productos"])){
-    $_SESSION["productos_carro"] = [];
-}
+//if(!isset($_SESSION["productos"])){
+  //  $_SESSION["productos_carro"] = [];
+//}
+//array_push($_SESSION["productos_carro"],$id);
 
-array_push($_SESSION["productos_carro"],$id);
-
+$_SESSION["productos_carro"][$id] = $id;
 
 
 
