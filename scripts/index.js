@@ -35,17 +35,14 @@ $(document).ready(function(){
         //event.preventDefault();
         $(this).toggleClass("far fas");
         $.post( "favoritos.php", { id: this.dataset.id} );
-        location.reload();
     })
 
 
     $(".agregarProducto").click(function(event){
         $.post("carrito.php", { id: this.dataset.id});
-        $(this).toggleClass("productoAgregado");
+        $(this).addClass("productoAgregado");
         if($(this).hasClass("productoAgregado")){
-            $(this).text("Agregado");
-        }else{
-            $(this).text("Añadir al carrito");
+            $(this).text("En carrito");
         }
 
 

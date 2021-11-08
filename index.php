@@ -20,7 +20,7 @@
     <div class="wrapper">
         <?php 
         include_once "funciones.php";
-        crearSesion();
+        session_start();
         !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); ?>
         <aside>
             <article id="vistos">

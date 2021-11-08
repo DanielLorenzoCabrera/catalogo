@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $POLITICA_COOKIES = "<p> Las cookies de este sitio web se usan para personalizar el contenido y los anuncios, ofrecer funciones de redes sociales y analizar el tráfico. Además, compartimos información sobre el uso que haga del sitio web con nuestros partners de redes sociales, publicidad y análisis web, quienes pueden combinarla con otra información que les haya proporcionado o que hayan recopilado a partir del uso que haya hecho de sus servicios.</p>";
 
@@ -19,7 +20,8 @@ $PRODUCTOS = getJSON('./productos.json');
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}' class='nombre'>{$producto['nombre']}</a>";
             echo "<p class='descripcion'>{$producto['descripcion']}</p>";
             $clase_agregado =  actualizarAgregados($producto["id"]);
-            echo "<button class='agregarProducto {$clase_agregado}' data-id='{$producto['id']}' >Añadir al carrito</button>";
+            $agregado = actualizarAgregados($producto["id"]) === "" ? "Agregar producto" : "En carrito";
+            echo "<button class='agregarProducto {$clase_agregado}' data-id='{$producto['id']}' >{$agregado}</button>";
             echo "</div>";
         }
         echo "</div>";
@@ -116,12 +118,7 @@ function actualizarCorazon($id_producto){
 
 
 
-function crearSesion(){
-    session_start();
-    if(!isset($_SESSION["iniciada"])){
-        $_SESSION["iniciada"] = true;
-    }
-}
+
 
 
 
@@ -133,4 +130,64 @@ function actualizarAgregados($id_producto){
     return $resultado;
 }
 
+
+
+
+function solicitarLogin(){
+    echo "<form action='{$_SERVER['PHP_SELF']}' method='post'>";
+    echo "<h1>Iniciar sesión</h1>";
+    echo "<input type='text' name='usuario' placeholder='usuario'>";
+    echo "<input type='text' name='password' placeholder='password'>";
+    echo "<input type='submit'>";
+    echo "</form>";
+}
+
+
+function mostrarProductosCarro($PRODUCTOS){
+    $hayProductosCarro =  isset($_SESSION["productos_carro"]) && count($_SESSION["productos_carro"]) > 0 ? true : false;
+    if($hayProductosCarro){
+        echo "<div id='productos_carro'>";
+        echo "<h1>Carrito de la compra</h1>";
+        $productosCarro =  $_SESSION["productos_carro"];
+        foreach($productosCarro as $clave => $producto){
+            echo "<article>";
+            echo "<img src='{$PRODUCTOS[$clave]['imagen_small']}'>";
+            echo "<p class='nombre'>{$PRODUCTOS[$clave]['nombre']}</p>";
+            echo "<section>";
+            echo "<p class='precio'>{$PRODUCTOS[$clave]['precio']}€</p>";
+            echo "<input type='number' name='cantidadProducto{$clave}' min='1' value='1' required>";
+            echo "</section>";
+            echo "</article>";
+        }
+        echo "</div>";
+        echo "<div id='resumen'>";
+        echo "<p>Subtotal : <span id='subtotal'></span></p>";
+        echo "<p>Gastos de envío : <span id='gastos_envio'></span> </p>";
+        echo "<p>Total: <span id='total'></span></p>";
+
+
+        echo "</div>";
+        
+    }else{
+
+    }
+
+    
+
+}
+
+
+
+function validarFormulario(){
+    if(isset($_REQUEST) && !empty($_REQUEST)){
+        if($_REQUEST["usuario"] === "usuario" && $_REQUEST["password"] === "clave"){
+            $_SESSION["login"] = true;
+            header("Location: carrito.php");
+        }else{
+            echo "<p class='error'>Usuario o contraseña erróneos</p>";
+        }
+    }
+}
+
 ?>
+

@@ -3,7 +3,7 @@
         "id" : "0",
         "nombre" : "Busto con cadena",
         "descripcion" : "Precioso busto inspirado en la época romana con un bonito collar de oro falso",
-        "precio" : "50",
+        "precio" : "400",
         "imagen_small" : "imagenes/busto.jpg",
         "nombre_ruta" : "busto.php"
     },
@@ -11,7 +11,7 @@
         "id" : "1",
         "nombre" : "Cámara Nikon",
         "descripcion" : "Cámara Nikon FG de los años 90 con el objetivo de 50mm",
-        "precio" : "150",
+        "precio" : "350",
         "imagen_small" : "imagenes/camara_nikon.jpg",
         "nombre_ruta" : "nikon.php"
     },

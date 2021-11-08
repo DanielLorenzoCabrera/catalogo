@@ -298,3 +298,80 @@ aside{
 .productoAgregado{
     background-color: violet;
 }
+
+
+#productos_carro{
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1024px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+#productos_carro > h1{
+    width: 100%;
+    text-align: center;
+    
+}
+
+#productos_carro > article{
+    max-width: 300px;
+    text-align: center;
+    background-color: #fff;
+    outline: .1em solid rgb(0, 0, 0);
+    padding: 1em;
+}
+
+#productos_carro > article > section{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#productos_carro input{
+    height: 20px;
+}
+
+
+#resumen{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 1em auto;
+    padding: 1em;
+    background-color: #fff;
+    max-width: 300px;
+    
+}
+
+#resumen p{
+    margin: .1em 0;
+}
+
+main > form{
+    background-color: #fff;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 300px;
+    padding: 2em;
+    align-items: center;
+    margin: 3em auto;
+
+}
+
+main > form > h1{
+    color: var(--main_color);
+    text-align: center;
+}
+
+main > form > *{
+    max-width: 50%;
+    margin: .5em 0;
+}
+
+.error{
+    text-align: center;
+    margin: 1em auto;
+    background-color: #fff;
+    max-width: 300px;
+}
