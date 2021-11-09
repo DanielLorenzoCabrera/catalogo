@@ -1,3 +1,18 @@
+Pendientes
+
+Poder eliminar un producto (Eliminar tanto de la vista como de $_SESSION)
+añadir boton de tramitar en la seccion carrito
+crear la seccion de formulario de tramitacion 
+validar los campos del formulario
+añadir el logout del usuario
+
+
+
+
+
+
+Hechos 
+
 Mostrar precios carrito de la compra
 Actualizar precios
 Gastos de envío 0 cuando el producto supere los 500€

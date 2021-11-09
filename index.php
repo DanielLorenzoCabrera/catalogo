@@ -16,20 +16,19 @@
     <header>
         <a href='index.php'><p>telo<span>COMPRO</span></p></a>
         <?php if (isset($_COOKIE["politica"])): ?>
-            <a href="carrito.php" class='icono_carro'><i class="fas fa-shopping-cart"></i></a> 
+            <a href="carrito.php" class='icono_carro'>
+                <i class="fas fa-shopping-cart"></i>
+            </a> 
         <?php endif ?>
     </header>
     <div class="wrapper">
         <?php 
-        
-        include_once "funciones.php";
-        //session_start(); Este session_start no es necesario puesto que ya existe en funciones.php
-        !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); ?>
+            include_once "funciones.php";
+            !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); 
+        ?>
         <aside>
             <article id="vistos">
-                <?php 
-                isset($_COOKIE["politica"]) ? mostrarVistos($PRODUCTOS) : ''; 
-                ?>
+                <?php isset($_COOKIE["politica"]) ? mostrarVistos($PRODUCTOS) : ''; ?>
             </article>
             <article id="favoritos">
                 <?php isset($_COOKIE["politica"]) ? mostrarFavoritos($PRODUCTOS) : '';?>
@@ -38,9 +37,12 @@
         
     </div>
     <div class="permisoDenegado">
-            <h1>Acceso a la página denegado</h1>
-            <p>Debe de aceptar la política de cookies si desea navegar en nuestro sitio web. 
-            Si desea reconsiderar su decisión acerda de nuestra política de cookies <span id='volverPantallaCookies'>pulse aquí</span></p>
+        <h1>Acceso a la página denegado</h1>
+        <p>
+            Debe de aceptar la política de cookies si desea navegar en nuestro sitio web. 
+            Si desea reconsiderar su decisión acerda de nuestra política de cookies 
+            <span id='volverPantallaCookies'>pulse aquí</span>
+        </p>
     </div>
     
     

@@ -152,7 +152,8 @@ function mostrarProductosCarro($PRODUCTOS){
             echo "<p class='nombre'>{$PRODUCTOS[$clave]['nombre']}</p>";
             echo "<section>";
             echo "<p class='precio'>{$PRODUCTOS[$clave]['precio']}€</p>";
-            echo "<input type='number' name='cantidadProducto{$clave}' min='1' value='1' required>";
+            echo "Cantidad:<input type='number' class='cantidadProducto' min='1' value='1' required>";
+            echo "<button class='eliminarProducto'>eliminar</button>";
             echo "</section>";
             echo "</article>";
         }
@@ -161,9 +162,8 @@ function mostrarProductosCarro($PRODUCTOS){
         echo "<p>Subtotal : <span id='subtotal'></span></p>";
         echo "<p>Gastos de envío : <span id='gastos_envio'></span> </p>";
         echo "<p>Total: <span id='total'></span></p>";
-
-
         echo "</div>";
+        echo "<a href='tramite.php'>Tramitar pedido</a>";
         
     }else{
         echo "<div class='carro_vacio'>";

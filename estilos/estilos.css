@@ -383,3 +383,32 @@ main > form > *{
     margin: 4em auto;
     padding: 1em;
 }
+
+.cantidadProducto{
+    max-width: 30%;
+}
+
+
+.producto_carro{
+   
+}
+
+.eliminarProducto{
+    cursor: pointer;
+    color: var(--second_color);
+    border: 0;
+    outline: .1em solid var(--second_color);
+    background-color: transparent;
+    padding: .5em 1em;
+    
+}
+
+.eliminarProducto:hover{
+    background-color: var(--second_color);
+    color:#fff;
+}
+
+a[href='tramite.php']{
+   margin: 1em auto;
+   background-color: white;
+}

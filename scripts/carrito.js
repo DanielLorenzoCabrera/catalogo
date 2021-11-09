@@ -7,19 +7,25 @@ const resumen = {
 $(document).ready(function(){
 
     actualizarResumen();
-    console.table(resumen)
+    $(".cantidadProducto").change(actualizarResumen);
 
 });
 
+
+
+
+
 function actualizarResumen(){
     let productos = document.querySelectorAll(".producto_carro");
+    let precioInicial = 0;
     productos.forEach(element => {
     let precio = element.querySelector(".precio");
     let valorPrecio = (precio.textContent).substring(-1,(precio.textContent).length -1);
     let cantidad =  parseInt((element.querySelector("input")).value);
-    resumen.subtotal += parseInt(valorPrecio * cantidad);
+    precioInicial += parseInt(valorPrecio * cantidad);
 
     })
+    resumen.subtotal = precioInicial;
     let subtotal =  document.querySelector("#subtotal");
     let gastosEnvio =  document.querySelector("#gastos_envio");
     let total =  document.querySelector("#total");
