@@ -15,12 +15,15 @@
 <body>
     <header>
         <a href='index.php'><p>telo<span>COMPRO</span></p></a>
-        <a href="carrito.php"><i class="fas fa-shopping-cart"></i></a> 
+        <?php if (isset($_COOKIE["politica"])): ?>
+            <a href="carrito.php" class='icono_carro'><i class="fas fa-shopping-cart"></i></a> 
+        <?php endif ?>
     </header>
     <div class="wrapper">
         <?php 
+        
         include_once "funciones.php";
-        session_start();
+        //session_start(); Este session_start no es necesario puesto que ya existe en funciones.php
         !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); ?>
         <aside>
             <article id="vistos">
@@ -40,10 +43,6 @@
             Si desea reconsiderar su decisión acerda de nuestra política de cookies <span id='volverPantallaCookies'>pulse aquí</span></p>
     </div>
     
-    <?php
-        /*if(isset($_SESSION)){
-            var_dump($_SESSION);
-        } */?>
     
 </body>
 </html>

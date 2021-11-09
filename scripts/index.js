@@ -26,8 +26,8 @@ $(document).ready(function(){
             $(".politica").css("display","none");
             $(".wrapper").append(data);
             location.reload();
-           
         })
+        
     })
     
 

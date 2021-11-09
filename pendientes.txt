@@ -1,0 +1,3 @@
+Mostrar precios carrito de la compra
+Actualizar precios
+Gastos de envío 0 cuando el producto supere los 500€

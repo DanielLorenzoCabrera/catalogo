@@ -85,6 +85,7 @@ $PRODUCTOS = getJSON('./productos.json');
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'><img src='{$producto['imagen_small']}'></a>";
             echo "<a href='{$producto['nombre_ruta']}?id={$producto['id']}'>{$producto['nombre']}</a>";
             echo "<span class='precio'>{$producto['precio']} €</span>";
+            echo "<span class='numero_vistas'>Veces visto: {$visto}</span>";
             echo "</section>";
         }
     }
@@ -118,10 +119,6 @@ function actualizarCorazon($id_producto){
 
 
 
-
-
-
-
 function actualizarAgregados($id_producto){
     $resultado = '';
     if(isset($_SESSION["productos_carro"])){
@@ -150,7 +147,7 @@ function mostrarProductosCarro($PRODUCTOS){
         echo "<h1>Carrito de la compra</h1>";
         $productosCarro =  $_SESSION["productos_carro"];
         foreach($productosCarro as $clave => $producto){
-            echo "<article>";
+            echo "<article class='producto_carro'>";
             echo "<img src='{$PRODUCTOS[$clave]['imagen_small']}'>";
             echo "<p class='nombre'>{$PRODUCTOS[$clave]['nombre']}</p>";
             echo "<section>";
@@ -169,7 +166,9 @@ function mostrarProductosCarro($PRODUCTOS){
         echo "</div>";
         
     }else{
-
+        echo "<div class='carro_vacio'>";
+        echo "<p>No hay productos en el carro</p>";
+        echo "</div>";
     }
 
     

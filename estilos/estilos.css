@@ -375,3 +375,11 @@ main > form > *{
     background-color: #fff;
     max-width: 300px;
 }
+
+
+.carro_vacio{
+    background-color: #fff;
+    text-align: center;
+    margin: 4em auto;
+    padding: 1em;
+}

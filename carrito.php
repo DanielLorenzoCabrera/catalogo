@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="estilos/estilos.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/carrito.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -18,9 +19,9 @@
 <a href="index.php"><i class="fas fa-chevron-left"></i></a>
   <main>
   <?php
-    session_start();
+    //session_start();
     include_once 'funciones.php';
-    // Entra en el if cuando llamamos a carrito.php desde el boton de añadir al carrito
+    // Entra en el if cuando llamamos a carrito.php desde el boton de "añadir al carrito"
     if(isset($_REQUEST["id"])){ 
       $id = $_REQUEST["id"];
       $_SESSION["productos_carro"][$id] = $id;
