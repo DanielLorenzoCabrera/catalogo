@@ -389,9 +389,6 @@ main > form > *{
 }
 
 
-.producto_carro{
-   
-}
 
 .eliminarProducto{
     cursor: pointer;
@@ -406,9 +403,21 @@ main > form > *{
 .eliminarProducto:hover{
     background-color: var(--second_color);
     color:#fff;
+    align-items: center;
 }
 
+#carro{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+
+
 a[href='tramite.php']{
-   margin: 1em auto;
    background-color: white;
+   max-width: 150px;
+   text-align: center;
+   padding: 1em;
 }

@@ -153,7 +153,7 @@ function mostrarProductosCarro($PRODUCTOS){
             echo "<section>";
             echo "<p class='precio'>{$PRODUCTOS[$clave]['precio']}€</p>";
             echo "Cantidad:<input type='number' class='cantidadProducto' min='1' value='1' required>";
-            echo "<button class='eliminarProducto'>eliminar</button>";
+            echo "<button class='eliminarProducto' data-id='{$clave}'>eliminar</button>";
             echo "</section>";
             echo "</article>";
         }

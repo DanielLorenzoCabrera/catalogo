@@ -17,14 +17,22 @@
     <a href='index.php'><p>telo<span>COMPRO</span></p></a>
 </header>
 <a href="index.php"><i class="fas fa-chevron-left"></i></a>
-  <main>
+  <main id='carro'>
   <?php
-    //session_start();
     include_once 'funciones.php';
-    // Entra en el if cuando llamamos a carrito.php desde el boton de "añadir al carrito"
+    // Entra en el if cuando llamamos a carrito.php desde el boton de "añadir al carrito" o cuando accionamos "eliminar"
     if(isset($_REQUEST["id"])){ 
       $id = $_REQUEST["id"];
-      $_SESSION["productos_carro"][$id] = $id;
+
+      if(isset($_REQUEST["borrar"])){ //Elimina un producto desde el boton eliminar
+        if(isset($_SESSION["productos_carro"][$id])){ // si existe el producto lo eliminamos
+          unset($_SESSION["productos_carro"][$id]);
+        }
+
+      }else{ // Agrega un producto desde el boton agregar producto
+        $_SESSION["productos_carro"][$id] = $id;
+      }
+      
     }else{ // aquí entra cuando accedemos desde el carrito de la compra
       $haIniciadoSesion = isset($_SESSION["login"]) && $_SESSION["login"] === true ? true : false;
       validarFormulario();
@@ -33,12 +41,8 @@
       }else{
         mostrarProductosCarro($PRODUCTOS);
       }
-
-
     }
     
-
-
 
   ?>
 

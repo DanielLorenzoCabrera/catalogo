@@ -8,6 +8,7 @@ $(document).ready(function(){
 
     actualizarResumen();
     $(".cantidadProducto").change(actualizarResumen);
+    $(".eliminarProducto").click(eliminarProducto);
 
 });
 
@@ -35,5 +36,11 @@ function actualizarResumen(){
     resumen.total = resumen.subtotal + resumen.gastosEnvio;
     total.innerHTML = `${resumen.total}€`;
 
+}
+
+
+function eliminarProducto(){
+    $.post( "carrito.php", { id: this.dataset.id, borrar : true});
+    location.reload();
 }
 
