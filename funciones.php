@@ -134,7 +134,7 @@ function solicitarLogin(){
     echo "<form action='{$_SERVER['PHP_SELF']}' method='post'>";
     echo "<h1>Iniciar sesión</h1>";
     echo "<input type='text' name='usuario' placeholder='usuario'>";
-    echo "<input type='text' name='password' placeholder='password'>";
+    echo "<input type='password' name='password' placeholder='password'>";
     echo "<input type='submit'>";
     echo "</form>";
 }

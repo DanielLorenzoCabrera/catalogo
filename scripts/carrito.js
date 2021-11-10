@@ -31,7 +31,7 @@ function actualizarResumen(){
     let gastosEnvio =  document.querySelector("#gastos_envio");
     let total =  document.querySelector("#total");
     subtotal.innerHTML = `${resumen.subtotal}€`;
-    resumen.gastosEnvio =  resumen.subtotal >= 500 ? 0 : 20 ;
+    resumen.gastosEnvio =  resumen.subtotal >= 500 ? 0 : (resumen.subtotal *10)/100 ;
     gastosEnvio.innerHTML = `${resumen.gastosEnvio}€`;
     resumen.total = resumen.subtotal + resumen.gastosEnvio;
     total.innerHTML = `${resumen.total}€`;
