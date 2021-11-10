@@ -147,7 +147,7 @@ function mostrarProductosCarro($PRODUCTOS){
         echo "<h1>Carrito de la compra</h1>";
         $productosCarro =  $_SESSION["productos_carro"];
         foreach($productosCarro as $clave => $producto){
-            echo "<article class='producto_carro'>";
+            echo "<article class='producto_carro' data-id='{$clave}'>";
             echo "<img src='{$PRODUCTOS[$clave]['imagen_small']}'>";
             echo "<p class='nombre'>{$PRODUCTOS[$clave]['nombre']}</p>";
             echo "<section>";
@@ -163,7 +163,7 @@ function mostrarProductosCarro($PRODUCTOS){
         echo "<p>Gastos de envío : <span id='gastos_envio'></span> </p>";
         echo "<p>Total: <span id='total'></span></p>";
         echo "</div>";
-        echo "<a href='tramite.php'>Tramitar pedido</a>";
+        echo "<a href='#tramite.php' id='tramitar'>Tramitar pedido</a>";
         
     }else{
         echo "<div class='carro_vacio'>";

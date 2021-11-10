@@ -1,10 +1,16 @@
 Pendientes
 
 crear la seccion de formulario de tramitacion 
-validar los campos del formulario
+validar los campos del formulario tramitar
 añadir el logout del usuario
 Ocultar la clave del usuario lado cliente (type password)
 encriptar la clave en el lado servidor
+Mostrar la cesta resumen
+
+A la hora de hacer el cierre de _SESSION
+unset todas las variables de Session NO HACERLE UNSET A $_SESSION
+destroy_session();
+
 
 
 

@@ -2,17 +2,19 @@ const resumen = {
     subtotal : 0,
     total : 0,
     gastosEnvio : 0
-}
+};
+
+const cesta ={
+
+};
 
 $(document).ready(function(){
-
     actualizarResumen();
     $(".cantidadProducto").change(actualizarResumen);
     $(".eliminarProducto").click(eliminarProducto);
+    $("#tramitar").click(tramitarCesta);
 
 });
-
-
 
 
 
@@ -24,7 +26,8 @@ function actualizarResumen(){
     let valorPrecio = (precio.textContent).substring(-1,(precio.textContent).length -1);
     let cantidad =  parseInt((element.querySelector("input")).value);
     precioInicial += parseInt(valorPrecio * cantidad);
-
+    
+    cesta[`${element.dataset.id}`] = cantidad;
     })
     resumen.subtotal = precioInicial;
     let subtotal =  document.querySelector("#subtotal");
@@ -35,12 +38,19 @@ function actualizarResumen(){
     gastosEnvio.innerHTML = `${resumen.gastosEnvio}€`;
     resumen.total = resumen.subtotal + resumen.gastosEnvio;
     total.innerHTML = `${resumen.total}€`;
-
+    console.table(cesta)
 }
 
 
 function eliminarProducto(){
     $.post( "carrito.php", { id: this.dataset.id, borrar : true});
     location.reload();
+}
+
+
+function tramitarCesta(){
+    $.post( "tramite.php", cesta).done(function(data){
+        console.log(data);
+    });
 }
 
