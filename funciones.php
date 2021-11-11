@@ -188,5 +188,16 @@ function validarFormulario(){
     }
 }
 
+
+function comprobarTotal($PRODUCTOS,$cesta){
+    $total = 0;
+    foreach($cesta as $id => $cantidad){
+        $total += ($PRODUCTOS[$id]['precio'] * $cantidad);
+        
+    }
+    $total < 500 ? $total += ($total * 0.1) : '';
+    return $total;
+}
+
 ?>
 

@@ -38,7 +38,7 @@ function actualizarResumen(){
     gastosEnvio.innerHTML = `${resumen.gastosEnvio}€`;
     resumen.total = resumen.subtotal + resumen.gastosEnvio;
     total.innerHTML = `${resumen.total}€`;
-    console.table(cesta)
+    //console.table(cesta)
 }
 
 
@@ -50,7 +50,15 @@ function eliminarProducto(){
 
 function tramitarCesta(){
     $.post( "tramite.php", cesta).done(function(data){
-        console.log(data);
+        let total =  (document.querySelector("#total")).textContent;
+        total = total.substring(0, total.length -1);
+        if(total === data.trim()){
+            location.href = "tramite.php";
+        }else{
+            $("#carro").append("<p class='error'>El precio del producto ha sido modificado, por favor evite realizar esta acción</p>");
+            
+        }
+      
     });
 }
 
