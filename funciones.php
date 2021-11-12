@@ -3,7 +3,11 @@ session_start();
 
 $POLITICA_COOKIES = "<p> Las cookies de este sitio web se usan para personalizar el contenido y los anuncios, ofrecer funciones de redes sociales y analizar el tráfico. Además, compartimos información sobre el uso que haga del sitio web con nuestros partners de redes sociales, publicidad y análisis web, quienes pueden combinarla con otra información que les haya proporcionado o que hayan recopilado a partir del uso que haya hecho de sus servicios.</p>";
 
-$PRODUCTOS = getJSON('./productos.json');
+$PRODUCTOS = getJSON('./json/productos.json');
+$PAISES =  getJSON('./json/paises.json');
+$PROVINCIAS = getJSON('./json/provincias.json');
+$MUNICIPIOS = getJSON('./json/municipios.json');
+$TIPOS_VIA = ["avenida","calle","carretera","paseo","plaza","ronda","travesia","urbanizacion","otros"];
 
 
    function crearProductos($PRODUCTOS){
@@ -198,6 +202,48 @@ function comprobarTotal($PRODUCTOS,$cesta){
     $total < 500 ? $total += ($total * 0.1) : '';
     return $total;
 }
+
+
+
+function mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS){
+    echo "<form action='{$_SERVER['PHP_SELF']}' method='GET'>";
+    echo "<fieldset> <legend>Persona de contacto</legend>";
+    echo "<p>Nombre* <input type='text' name='nombre' required></p>";
+    echo "<p>Primer Apellido* <input type='text' name='apellido1' required></p>";
+    echo "<p>Segundo Apellido <input type='text' name='apellido2'></p>";
+    echo "<p>Teléfono <input type='text' name='telefono'></p>";
+    echo "<p>Indicaciones extra <textarea name='indicaciones' rows='10' cols='50'>¿Alguna indicación especial?</textarea> </p>";
+    echo "</fieldset><fieldset> <legend>Datos principales</legend>";
+    crearSelect($PAISES,'paises', 'name_es', 'code','País');
+    crearSelect($PROVINCIAS,'provincias', 'nm' , 'id' ,'Provincia');
+    crearSelect($MUNICIPIOS,'municipios', 'nombre','municipio_id' ,'Municipio');
+    echo "<p>Código Postal <input type='text' name='codigo_postal'></p>";
+    
+ 
+    echo "</form>";
+
+}
+
+
+function crearSelect($array, $nombreSelect, $nombreOption, $idOption, $label){
+    echo "<section>";
+    echo "<label for='{$nombreSelect}'>{$label}</label>";
+    echo "<select name='{$nombreSelect}' id='{$nombreSelect}'>";
+    foreach($array as $elemento) { 
+        echo "<option value='{$elemento[$idOption]}'> {$elemento[$nombreOption]}</option>"; 
+    }
+    echo "</select>";
+    echo "</section>";
+}
+   
+
+
+
+
+
+
+
+
 
 ?>
 
