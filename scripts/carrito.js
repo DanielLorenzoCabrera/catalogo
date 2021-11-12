@@ -43,7 +43,7 @@ function actualizarResumen(){
 
 
 function eliminarProducto(){
-    $.post( "carrito.php", { id: this.dataset.id, borrar : true});
+    $.get( "carrito.php", { id: this.dataset.id, borrar : true});
     location.reload();
 }
 

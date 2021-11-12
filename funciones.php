@@ -7,7 +7,7 @@ $PRODUCTOS = getJSON('./json/productos.json');
 $PAISES =  getJSON('./json/paises.json');
 $PROVINCIAS = getJSON('./json/provincias.json');
 $MUNICIPIOS = getJSON('./json/municipios.json');
-$TIPOS_VIA = ["avenida","calle","carretera","paseo","plaza","ronda","travesia","urbanizacion","otros"];
+$TIPOS_VIA = getJSON('./json/tipos_via.json');
 
 
    function crearProductos($PRODUCTOS){
@@ -205,21 +205,23 @@ function comprobarTotal($PRODUCTOS,$cesta){
 
 
 
-function mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS){
+function mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS, $TIPOS_VIA){
     echo "<form action='{$_SERVER['PHP_SELF']}' method='GET'>";
     echo "<fieldset> <legend>Persona de contacto</legend>";
     echo "<p>Nombre* <input type='text' name='nombre' required></p>";
     echo "<p>Primer Apellido* <input type='text' name='apellido1' required></p>";
     echo "<p>Segundo Apellido <input type='text' name='apellido2'></p>";
-    echo "<p>Teléfono <input type='text' name='telefono'></p>";
-    echo "<p>Indicaciones extra <textarea name='indicaciones' rows='10' cols='50'>¿Alguna indicación especial?</textarea> </p>";
+    echo "<p>Teléfono *<input type='text' name='telefono'></p>";
+    echo "<p>Indicaciones extra <textarea name='indicaciones' rows='10' cols='50'></textarea> </p>";
     echo "</fieldset><fieldset> <legend>Datos principales</legend>";
     crearSelect($PAISES,'paises', 'name_es', 'code','País');
     crearSelect($PROVINCIAS,'provincias', 'nm' , 'id' ,'Provincia');
     crearSelect($MUNICIPIOS,'municipios', 'nombre','municipio_id' ,'Municipio');
-    echo "<p>Código Postal <input type='text' name='codigo_postal'></p>";
-    
- 
+    echo "<p>Código Postal* <input type='text' name='codigo_postal'></p>";
+    crearSelect($TIPOS_VIA,'via', 'tipo','tipo' ,'Tipo via');
+    echo "<p>Nombre via* <input type='text' name='nombre_via'></p>";
+    echo "<a href='carrito.php'><input type='button' value='volver'></a>";
+    echo "<input type='submit' value='comprar'>";
     echo "</form>";
 
 }
@@ -227,7 +229,7 @@ function mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS){
 
 function crearSelect($array, $nombreSelect, $nombreOption, $idOption, $label){
     echo "<section>";
-    echo "<label for='{$nombreSelect}'>{$label}</label>";
+    echo "<label for='{$nombreSelect}'>{$label}*</label>";
     echo "<select name='{$nombreSelect}' id='{$nombreSelect}'>";
     foreach($array as $elemento) { 
         echo "<option value='{$elemento[$idOption]}'> {$elemento[$nombreOption]}</option>"; 
@@ -237,7 +239,16 @@ function crearSelect($array, $nombreSelect, $nombreOption, $idOption, $label){
 }
    
 
-
+function comprobarCamposObligatorios($campos){
+    $datosRecibidos =  $_GET;
+    $camposErroneos = [];
+    foreach($campos as $clave => $campo){
+       if(!array_key_exists($clave,$datosRecibidos) || empty($datosRecibidos[$clave]) ){
+           array_push($camposErroneos,"<p>El campo <span>{$clave}</span> esta vacío</p>");
+       }
+    }
+    return $camposErroneos;
+}
 
 
 

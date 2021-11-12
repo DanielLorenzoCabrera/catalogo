@@ -3,8 +3,13 @@
 $CAMPOS_OBLIGATORIOS = [
     "nombre" => "",
     "apellido1" => "",
-    "telefono" => ""
-
+    "telefono" => "",
+    "pais" => "",
+    "provincia" => "",
+    "municipio" => "",
+    "codigo_postal" => "",
+    "via" => "",
+    "nombre_via" => ""
 ];
 
 
@@ -14,11 +19,17 @@ $CAMPOS_OBLIGATORIOS = [
         $cesta = $_POST;
         $comprobacion =  comprobarTotal($PRODUCTOS,$cesta);
         echo $comprobacion; // Esto devuelve a javaScript el total que debería de ser para comparar con el total que recibimos
+    }else if(isset($_GET) && count($_GET) > 0){
+        $camposVacios = comprobarCamposObligatorios($CAMPOS_OBLIGATORIOS);
+        if(count($camposVacios) > 0){
+            foreach($camposVacios as $campo){
+                echo $campo;
+            }
+        }
+         
+        
     }else{
-
-
-        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS);
-
+        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
 
     }
     

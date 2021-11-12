@@ -1,0 +1,31 @@
+[
+    {
+        "tipo" : "avenida"
+    },
+    {
+        "tipo" : "calle"
+    },
+    {
+        "tipo" : "carretera"
+    },
+    {
+        "tipo" : "paseo"
+    },
+    {
+        "tipo" : "plaza"
+    },
+    {
+        "tipo" : "ronda"
+    },
+    {
+        "tipo" : "travesia"
+    },
+    {
+        "tipo" : "urbanizacion"
+    },
+    {
+        "tipo" : "otros"
+    }
+]
+
+
