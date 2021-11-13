@@ -20,7 +20,7 @@ $CAMPOS_OBLIGATORIOS = [
         $comprobacion =  comprobarTotal($PRODUCTOS,$cesta);
         echo $comprobacion; // Esto devuelve a javaScript el total que debería de ser para comparar con el total que recibimos
     }else if(isset($_GET) && count($_GET) > 0){
-        $camposVacios = comprobarCamposObligatorios($CAMPOS_OBLIGATORIOS);
+        $camposVacios = camposObligatoriosVacios($CAMPOS_OBLIGATORIOS);
         if(count($camposVacios) > 0){
             foreach($camposVacios as $campo){
                 echo $campo;
@@ -29,7 +29,7 @@ $CAMPOS_OBLIGATORIOS = [
          
         
     }else{
-        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
+        isset($_GET) ? comprobarCamposObligatorios() :  mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
 
     }
     

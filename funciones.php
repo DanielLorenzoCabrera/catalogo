@@ -239,7 +239,7 @@ function crearSelect($array, $nombreSelect, $nombreOption, $idOption, $label){
 }
    
 
-function comprobarCamposObligatorios($campos){
+function camposObligatoriosVacios($campos){
     $datosRecibidos =  $_GET;
     $camposErroneos = [];
     foreach($campos as $clave => $campo){
@@ -248,6 +248,10 @@ function comprobarCamposObligatorios($campos){
        }
     }
     return $camposErroneos;
+}
+
+function comprobarCamposObligatorios(){
+    
 }
 
 
