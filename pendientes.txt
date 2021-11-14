@@ -1,26 +1,7 @@
 Pendientes
 
-crear la seccion de formulario de tramitacion 
-validar los campos del formulario tramitar
-añadir el logout del usuario
-Ocultar la clave del usuario lado cliente (type password)
-encriptar la clave en el lado servidor
-Mostrar la cesta resumen
+* Mostrar la cesta resumen
 
 A la hora de hacer el cierre de _SESSION
 unset todas las variables de Session NO HACERLE UNSET A $_SESSION
 destroy_session();
-
-
-
-
-
-
-Hechos 
-
-Mostrar precios carrito de la compra
-Actualizar precios
-Gastos de envío 0 cuando el producto supere los 500€
-Poder eliminar un producto (Eliminar tanto de la vista como de $_SESSION)
-añadir boton de tramitar en la seccion carrito
-arreglar los gastos de envio, son el 10% del subtotal
