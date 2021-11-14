@@ -14,16 +14,25 @@
 </head>
 <body>
     <header>
+        <?php include_once "funciones.php"; ?>
         <a href='index.php'><p>telo<span>COMPRO</span></p></a>
         <?php if (isset($_COOKIE["politica"])): ?>
-            <a href="carrito.php" class='icono_carro'>
-                <i class="fas fa-shopping-cart"></i>
-            </a> 
+            <div>
+                <a href="carrito.php" class='icono_carro'>
+                    <i class="fas fa-shopping-cart"></i>
+                </a> 
+                <?php
+                if(isset($_SESSION["login"])){
+                    echo "<button id='logout'>Logout</button>";
+                }
+                ?>
+            </div>
+            
         <?php endif ?>
     </header>
     <div class="wrapper">
         <?php 
-            include_once "funciones.php";
+            //include_once "funciones.php";
             !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); 
         ?>
         <aside>

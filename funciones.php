@@ -311,6 +311,18 @@ function mostrarFallosCampos($array){
 }
 
 
+function vaciarCarrito(){
+    if(isset($_SESSION["productos_carro"])){
+        unset($_SESSION["productos_carro"]);
+    }
+}
+
+function compraRealizada(){
+    echo "<div class='compra_realizada'>";
+    echo "<p> Su compra se ha tramitado satisfactoriamente </p>";
+    echo "<a href='index.php'>Volver a la página principal</a>";
+    echo "</div>";
+}
 
 ?>
 

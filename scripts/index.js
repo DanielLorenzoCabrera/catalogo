@@ -49,7 +49,11 @@ $(document).ready(function(){
     })
 
 
+    $("#logout").click(function(){
+        $.post("login.php", {logout: true});
+        location.reload();
     
+    })
 
 
     

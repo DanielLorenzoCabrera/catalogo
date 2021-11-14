@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/select.js"></script>
     <title>Trámite</title>
 </head>
+<header>
+    <a href='index.php'><p>telo<span>COMPRO</span></p></a>
+</header>
 <body>
 <?php
 
@@ -39,7 +44,9 @@
                 mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
                 mostrarFallosCampos($camposErroneos);
             }else{
-                header('Location: index.php');
+                vaciarCarrito();
+                compraRealizada();
+                //header('Location: index.php');
             } 
         }
     }else{

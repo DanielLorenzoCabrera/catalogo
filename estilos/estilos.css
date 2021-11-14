@@ -50,16 +50,30 @@ header{
     align-items: center;
 }
 
-header > a >.fa-shopping-cart{
+header > div >  a >.fa-shopping-cart{
     font-size: 1.5em;
     color: #fff;
     margin: 0 1em;
     cursor: pointer;
+    
 }
 
-header > a >.fa-shopping-cart:hover{
+header div > a >.fa-shopping-cart:hover{
     color: rgb(195, 195, 195);
   
+}
+
+
+#logout{
+    border: 0;
+    background-color: transparent;
+    font-family: var(--text_font);
+    color: #fff;
+    cursor: pointer;
+}
+
+#logout:hover{
+    transform: scale(1.1);
 }
 
 
@@ -459,5 +473,15 @@ form > fieldset > p, fieldset > section{
 .botones  *{
     cursor: pointer;
 }
+
+
+.compra_realizada{
+    background-color: #fff;
+    max-width: 300px;
+    margin: 2em auto;
+    text-align: center;
+    padding: 1em;
+}
+
 
 
