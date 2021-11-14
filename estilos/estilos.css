@@ -422,3 +422,42 @@ a[href='tramite.php']{
    text-align: center;
    padding: 1em;
 }
+
+
+/* Tramite */
+
+form {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1024px;
+    justify-content: space-around;
+    margin: 2em auto;
+
+}
+
+form  legend{
+    font-family: var(--title_font);
+    text-align: center;
+    color: #fff;
+}
+
+form > fieldset{
+    display: flex;
+    flex-flow: column wrap;
+    min-width: 300px;
+    border: 0;
+    outline: .1em solid #fff;
+}
+
+form > fieldset > p, fieldset > section{
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 300px;
+    margin: .5em 0;
+}
+
+.botones  *{
+    cursor: pointer;
+}
+
+

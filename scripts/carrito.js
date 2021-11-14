@@ -12,7 +12,7 @@ $(document).ready(function(){
     actualizarResumen();
     $(".cantidadProducto").change(actualizarResumen);
     $(".eliminarProducto").click(eliminarProducto);
-    $("#tramitar").click(tramitarCesta);
+    //$("#tramitar").click(tramitarCesta); Se elimina porque interfiere con la creación del html
 
 });
 
@@ -47,7 +47,7 @@ function eliminarProducto(){
     location.reload();
 }
 
-
+/*
 function tramitarCesta(){
     $.post( "tramite.php", cesta).done(function(data){
         let total =  (document.querySelector("#total")).textContent;
@@ -56,9 +56,8 @@ function tramitarCesta(){
             location.href = "tramite.php";
         }else{
             $("#carro").append("<p class='error'>El precio del producto ha sido modificado, por favor evite realizar esta acción</p>");
-            
         }
       
     });
 }
-
+*/

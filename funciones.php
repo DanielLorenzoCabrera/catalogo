@@ -167,7 +167,7 @@ function mostrarProductosCarro($PRODUCTOS){
         echo "<p>Gastos de envío : <span id='gastos_envio'></span> </p>";
         echo "<p>Total: <span id='total'></span></p>";
         echo "</div>";
-        echo "<a href='#tramite.php' id='tramitar'>Tramitar pedido</a>";
+        echo "<a href='tramite.php' id='tramitar'>Tramitar pedido</a>";
         
     }else{
         echo "<div class='carro_vacio'>";
@@ -208,22 +208,31 @@ function comprobarTotal($PRODUCTOS,$cesta){
 function mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS, $TIPOS_VIA){
     echo "<form action='{$_SERVER['PHP_SELF']}' method='GET'>";
     echo "<fieldset> <legend>Persona de contacto</legend>";
-    echo "<p>Nombre* <input type='text' name='nombre' required></p>";
-    echo "<p>Primer Apellido* <input type='text' name='apellido1' required></p>";
-    echo "<p>Segundo Apellido <input type='text' name='apellido2'></p>";
-    echo "<p>Teléfono *<input type='text' name='telefono'></p>";
+    echo "<p>Nombre* <input type='text' name='nombre' value='".devolverValorAnterior('nombre') ."' required></p>";
+    echo "<p>Primer Apellido* <input type='text' name='apellido1' value='".devolverValorAnterior('apellido1') ."' required></p>";
+    echo "<p>Segundo Apellido* <input type='text' name='apellido2' value='".devolverValorAnterior('apellido2') ."' required></p>";
+    echo "<p>Teléfono *<input type='text' name='telefono' value='".devolverValorAnterior('telefono') ."'></p>";
     echo "<p>Indicaciones extra <textarea name='indicaciones' rows='10' cols='50'></textarea> </p>";
     echo "</fieldset><fieldset> <legend>Datos principales</legend>";
     crearSelect($PAISES,'paises', 'name_es', 'code','País');
     crearSelect($PROVINCIAS,'provincias', 'nm' , 'id' ,'Provincia');
     crearSelect($MUNICIPIOS,'municipios', 'nombre','municipio_id' ,'Municipio');
-    echo "<p>Código Postal* <input type='text' name='codigo_postal'></p>";
+    echo "<p>Código Postal* <input type='text' name='codigo_postal' value='".devolverValorAnterior('codigo_postal') ."''></p>";
     crearSelect($TIPOS_VIA,'via', 'tipo','tipo' ,'Tipo via');
-    echo "<p>Nombre via* <input type='text' name='nombre_via'></p>";
+    echo "<p>Nombre via* <input type='text' name='nombre_via' value='".devolverValorAnterior('nombre_via') ."''></p>";
+    echo "<div class='botones'>";
     echo "<a href='carrito.php'><input type='button' value='volver'></a>";
     echo "<input type='submit' value='comprar'>";
-    echo "</form>";
+    echo "</div>";
+    echo "</fieldset></form>";
 
+}
+
+function devolverValorAnterior($campo){
+    if(isset($_REQUEST[$campo])){
+        return $_REQUEST[$campo];
+    }
+    return '';
 }
 
 
@@ -241,22 +250,65 @@ function crearSelect($array, $nombreSelect, $nombreOption, $idOption, $label){
 
 function camposObligatoriosVacios($campos){
     $datosRecibidos =  $_GET;
-    $camposErroneos = [];
+    $camposVacios = [];
     foreach($campos as $clave => $campo){
        if(!array_key_exists($clave,$datosRecibidos) || empty($datosRecibidos[$clave]) ){
-           array_push($camposErroneos,"<p>El campo <span>{$clave}</span> esta vacío</p>");
+           array_push($camposVacios,"<p class='error'>El campo <span>{$clave}</span> esta vacío</p>");
        }
     }
-    return $camposErroneos;
+    return $camposVacios;
 }
 
 function comprobarCamposObligatorios(){
+    $datosRecibidos =  $_GET;
+    $camposErroneos = [];
+    foreach($datosRecibidos as $clave => $dato){
+        $dato = htmlspecialchars(trim($dato));
+        switch($clave){
+            case "nombre":
+                comprobarString($dato,3,20) ? '' : array_push($camposErroneos,"<p class='error'>El campo <span>{$clave}</span> es incorrecto</p>");
+                break;
+            case "apellido1":
+                comprobarString($dato,3,20) ? '' : array_push($camposErroneos,"<p class='error'>El campo <span>{$clave}</span> es incorrecto</p>");
+                break;
+            case "telefono":
+                is_numeric($dato) && strlen($dato) >= 7 && strlen($dato) <= 15  ? '' : array_push($camposErroneos,"<p class='error'>Introduce un <span>{$clave}</span> correcto</p>");
+                break;
+            case "codigo_postal":
+                is_numeric($dato) && ctype_digit($dato) && strlen($dato) === 5 ? ' ' : array_push($camposErroneos,"<p class='error'>Introduce un <span>{$clave}</span> válido</p>");
+                break;
+            case "nombre_via":
+                comprobarString($dato,3,20) ? '' : array_push($camposErroneos,"<p class='error'>El campo <span>{$clave}</span> es incorrecto</p>");
+                break;
+        }
+    }
+    return $camposErroneos;
     
 }
 
 
 
+function comprobarString($texto,$minLength,$maxLength){
 
+    if(strlen($texto) < $minLength || strlen($texto) > $maxLength){
+        return false;
+    }
+    
+    for($i = 0 ; $i < strlen($texto); $i++){
+        if(ctype_digit($texto[$i])){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+function mostrarFallosCampos($array){
+    foreach($array as $elemento){
+        echo $elemento;
+    }
+}
 
 
 
