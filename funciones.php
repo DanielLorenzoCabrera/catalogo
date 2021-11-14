@@ -271,6 +271,9 @@ function comprobarCamposObligatorios(){
             case "apellido1":
                 comprobarString($dato,3,20) ? '' : array_push($camposErroneos,"<p class='error'>El campo <span>{$clave}</span> es incorrecto</p>");
                 break;
+            case "apellido2":
+                comprobarString($dato,3,20) ? '' : array_push($camposErroneos,"<p class='error'>El campo <span>{$clave}</span> es incorrecto</p>");
+                break;
             case "telefono":
                 is_numeric($dato) && strlen($dato) >= 7 && strlen($dato) <= 15  ? '' : array_push($camposErroneos,"<p class='error'>Introduce un <span>{$clave}</span> correcto</p>");
                 break;
