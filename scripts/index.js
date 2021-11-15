@@ -24,9 +24,10 @@ $(document).ready(function(){
         //event.preventDefault();
         $.get("controlador.php").done(function(data){
             $(".politica").css("display","none");
-            $(".wrapper").append(data);
+            $(".wrapper").append(data); 
             location.reload();
         })
+        
         
     })
     
@@ -35,6 +36,7 @@ $(document).ready(function(){
         //event.preventDefault();
         $(this).toggleClass("far fas");
         $.post( "favoritos.php", { id: this.dataset.id} );
+        location.reload();
     })
 
 
@@ -52,7 +54,6 @@ $(document).ready(function(){
     $("#logout").click(function(){
         $.post("login.php", {logout: true});
         location.reload();
-    
     })
 
 

@@ -12,7 +12,7 @@ $(document).ready(function(){
     actualizarResumen();
     $(".cantidadProducto").change(actualizarResumen);
     $(".eliminarProducto").click(eliminarProducto);
-    //$("#tramitar").click(tramitarCesta); Se elimina porque interfiere con la creación del html
+    $("#tramitar").click(crearCestaResumen); //Se elimina porque interfiere con la creación del html
 
 });
 
@@ -38,7 +38,6 @@ function actualizarResumen(){
     gastosEnvio.innerHTML = `${resumen.gastosEnvio}€`;
     resumen.total = resumen.subtotal + resumen.gastosEnvio;
     total.innerHTML = `${resumen.total}€`;
-    //console.table(cesta)
 }
 
 
@@ -46,6 +45,13 @@ function eliminarProducto(){
     $.get( "carrito.php", { id: this.dataset.id, borrar : true});
     location.reload();
 }
+
+
+function crearCestaResumen(){
+    $.post("tramite.php", ...cesta);
+}
+
+
 
 /*
 function tramitarCesta(){

@@ -40,7 +40,7 @@ $TIPOS_VIA = getJSON('./json/tipos_via.json');
         echo "<div class='politica'>";
         echo "<h1>Esta pagina web utiliza cookies</h1>";
         echo $POLITICA_COOKIES;
-        echo "<a href='index.php?politica=true' id='aceptar'>Aceptar</a>";
+        echo "<a href='index.php' id='aceptar'>Aceptar</a>";
         echo "<a href='permisoDenegado.php' id='rechazar'>Rechazar</a>";
         echo "</div>";
    }

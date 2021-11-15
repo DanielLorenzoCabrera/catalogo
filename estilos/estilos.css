@@ -449,10 +449,17 @@ form {
 
 }
 
-form  legend{
+form legend{
     font-family: var(--title_font);
     text-align: center;
     color: #fff;
+    font-size: 1.5em;
+}
+
+form label, form p {
+    font-family: var(--text_font);
+    text-align: center;
+    color: #000;  
 }
 
 form > fieldset{
@@ -462,6 +469,7 @@ form > fieldset{
     border: 0;
     outline: .1em solid #fff;
 }
+
 
 form > fieldset > p, fieldset > section{
     display: flex;
@@ -481,6 +489,11 @@ form > fieldset > p, fieldset > section{
     margin: 2em auto;
     text-align: center;
     padding: 1em;
+}
+
+
+form input, form select{
+    padding: .5em;
 }
 
 

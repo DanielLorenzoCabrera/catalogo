@@ -50,8 +50,7 @@
             } 
         }
     }else{
-        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
-
+        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA); 
     }
 ?>
 
