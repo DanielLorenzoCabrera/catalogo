@@ -52,8 +52,10 @@ $(document).ready(function(){
 
 
     $("#logout").click(function(){
-        $.post("login.php", {logout: true});
-        location.reload();
+        $.post("login.php", {logout: true}).done(function(data){
+            location.reload();
+        })
+        
     })
 
 
