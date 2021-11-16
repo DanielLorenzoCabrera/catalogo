@@ -444,7 +444,7 @@ a[href='tramite.php']{
     display: flex;
     flex-flow: row wrap;
    
-    max-width: 70%;
+    max-width: 90%;
     margin: 0 auto;
     justify-content: space-around;
     
@@ -455,6 +455,8 @@ a[href='tramite.php']{
     flex-flow: row wrap;
     max-width: 1024px;
     margin: 2em 0;
+    align-items: flex-start;
+    justify-content: space-around;
   
 
 }
@@ -462,7 +464,7 @@ a[href='tramite.php']{
 form legend{
     font-family: var(--title_font);
     text-align: center;
-    color: #fff;
+    color: var(--second_color);
     font-size: 1.5em;
 }
 
@@ -530,8 +532,16 @@ form input, form select{
     
 }
 
+
+
+.producto_cesta p {
+    text-align: center;
+    flex: 2 1;
+}
+
 .producto_cesta img{
     max-width: 100px;
+    flex: 1;
 }
 
 

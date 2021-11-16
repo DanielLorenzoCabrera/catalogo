@@ -17,7 +17,7 @@
     },
     {
         "id" : "2",
-        "nombre" : "Busto con cadena",
+        "nombre" : "Cámara Fujifilm",
         "descripcion" : "Cámara Fujifilm X-T10 con el objetivo 18-55mm",
         "precio" : "200",
         "imagen_small" : "imagenes/camara.jpg",
