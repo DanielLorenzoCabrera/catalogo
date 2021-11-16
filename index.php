@@ -32,7 +32,7 @@
     </header>
     <div class="wrapper">
         <?php 
-            var_dump($_SESSION);
+            
             !isset($_COOKIE["politica"]) ? mostrarPoliticaCookies($POLITICA_COOKIES) :  crearProductos($PRODUCTOS); 
         ?>
         <aside>

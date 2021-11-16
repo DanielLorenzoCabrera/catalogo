@@ -327,5 +327,25 @@ function compraRealizada(){
     echo "</div>";
 }
 
+function crearCestaResumen($PRODUCTOS){
+    if(isset($_SESSION["productos_carro"])){
+        $total = [];
+        $cesta = $_SESSION["productos_carro"];
+        echo "<div id='cesta_resumen'>";
+        echo "<p>Cesta resumen</p>";
+        foreach($cesta as $idProducto => $cantidad){
+            $precio = $PRODUCTOS[$idProducto]['precio'] * $cantidad;
+            echo "<article class='producto_cesta'>";
+            echo "<img src='{$PRODUCTOS[$idProducto]['imagen_small']}'>";
+            echo "<section>";
+            echo "<p>{$cantidad} x {$PRODUCTOS[$idProducto]['nombre']}</p>";
+            echo "<p>{$precio}€</p>";
+            echo "</section>";
+            echo "</article>";
+        }
+        echo "</div>";
+    }
+}
+
 ?>
 

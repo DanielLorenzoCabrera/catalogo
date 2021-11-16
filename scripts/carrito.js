@@ -48,7 +48,7 @@ function eliminarProducto(){
 
 
 function crearCestaResumen(){
-    $.post("tramite.php", ...cesta);
+    $.post("cesta_resumen.php", {...cesta});
 }
 
 

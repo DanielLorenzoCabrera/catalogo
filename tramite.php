@@ -7,54 +7,51 @@
     <link rel="stylesheet" href="estilos/estilos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/select.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Trámite</title>
 </head>
 <header>
     <a href='index.php'><p>telo<span>COMPRO</span></p></a>
 </header>
+<a href="carrito.php"><i class="fas fa-chevron-left"></i></a>
 <body>
-<?php
-
-    $CAMPOS_OBLIGATORIOS = [
-        "nombre" => "",
-        "apellido1" => "",
-        "apellido2" => "",
-        "telefono" => "",
-        "codigo_postal" => "",
-        "via" => "",
-        "nombre_via" => ""
-    ];
-
-
-    include_once 'funciones.php';
-    //Se elimina la comprobación de la modificación del precio por parte del usuario por interferir al crear el html
-    /*if(isset($_POST) && count($_POST) > 0){
-        $cesta = $_POST;
-        $comprobacion =  comprobarTotal($PRODUCTOS,$cesta);
-        echo $comprobacion; // Esto devuelve a javaScript el total que debería de ser para comparar con el total que recibimos
-    }else */
-    if(isset($_GET) && count($_GET) > 0){
-        $camposVacios = camposObligatoriosVacios($CAMPOS_OBLIGATORIOS);
-        if(count($camposVacios) > 0){
-            mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
-            mostrarFallosCampos($camposVacios);
-        }else{
-            $camposErroneos = comprobarCamposObligatorios();
-            if(count($camposErroneos) > 0){
-                mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
-                mostrarFallosCampos($camposErroneos);
+    <main id='tramite'>
+        <?php
+            include_once 'funciones.php';
+            $CAMPOS_OBLIGATORIOS = [
+                "nombre" => "",
+                "apellido1" => "",
+                "apellido2" => "",
+                "telefono" => "",
+                "codigo_postal" => "",
+                "via" => "",
+                "nombre_via" => ""
+            ];
+            
+            
+            if(isset($_GET) && count($_GET) > 0){
+                $camposVacios = camposObligatoriosVacios($CAMPOS_OBLIGATORIOS);
+                if(count($camposVacios) > 0){
+                    mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
+                    mostrarFallosCampos($camposVacios);
+                }else{
+                    $camposErroneos = comprobarCamposObligatorios();
+                    if(count($camposErroneos) > 0){
+                        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
+                        mostrarFallosCampos($camposErroneos);
+                    }else{
+                        vaciarCarrito();
+                        compraRealizada();
+                    } 
+                }
             }else{
-                vaciarCarrito();
-                compraRealizada();
-                //header('Location: index.php');
-            } 
-        }
-    }else{
-        mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA); 
-    }
-?>
+                crearCestaResumen($PRODUCTOS);
+                mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
+            }
+        ?>
 
-
+</main>
     
 </body>
 </html>

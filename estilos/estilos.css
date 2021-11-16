@@ -440,12 +440,22 @@ a[href='tramite.php']{
 
 /* Tramite */
 
-form {
+#tramite{
+    display: flex;
+    flex-flow: row wrap;
+   
+    max-width: 70%;
+    margin: 0 auto;
+    justify-content: space-around;
+    
+}
+
+#tramite > form {
     display: flex;
     flex-flow: row wrap;
     max-width: 1024px;
-    justify-content: space-around;
-    margin: 2em auto;
+    margin: 2em 0;
+  
 
 }
 
@@ -465,7 +475,7 @@ form label, form p {
 form > fieldset{
     display: flex;
     flex-flow: column wrap;
-    min-width: 300px;
+    max-width: 300px;
     border: 0;
     outline: .1em solid #fff;
 }
@@ -495,6 +505,35 @@ form > fieldset > p, fieldset > section{
 form input, form select{
     padding: .5em;
 }
+
+
+
+
+
+#cesta_resumen{
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 300px;
+    height: auto;
+}
+
+#cesta_resumen > p{
+    font-family: var(--title_font);
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#cesta_resumen > .producto_cesta{
+   display: flex;
+   flex-flow: row nowrap;
+   background-color: #fff;
+    
+}
+
+.producto_cesta img{
+    max-width: 100px;
+}
+
 
 
 
