@@ -16,7 +16,7 @@
     <a href='index.php'><p>telo<span>COMPRO</span></p></a>
     <a href="carrito.php" class='icono_carro'><i class="fas fa-shopping-cart"></i></a> 
 </header>
-<a href="carrito.php"><i class="fas fa-chevron-left"></i></a>
+<a href="index.php"><i class="fas fa-chevron-left"></i></a>
     <section class="individual">
     <?php
         include_once "funciones.php";

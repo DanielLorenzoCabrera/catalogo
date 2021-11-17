@@ -33,10 +33,9 @@ $(document).ready(function(){
     
 
     $(".fa-heart").click(function(event){
-        //event.preventDefault();
+        event.preventDefault();
         $(this).toggleClass("far fas");
         $.post( "favoritos.php", { id: this.dataset.id} );
-        location.reload();
     })
 
 
@@ -63,4 +62,5 @@ $(document).ready(function(){
 
 
 })
+
 

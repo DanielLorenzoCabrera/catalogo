@@ -33,11 +33,13 @@
             if(isset($_GET) && count($_GET) > 0){
                 $camposVacios = camposObligatoriosVacios($CAMPOS_OBLIGATORIOS);
                 if(count($camposVacios) > 0){
+                    crearCestaResumen($PRODUCTOS);
                     mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
                     mostrarFallosCampos($camposVacios);
                 }else{
                     $camposErroneos = comprobarCamposObligatorios();
                     if(count($camposErroneos) > 0){
+                        crearCestaResumen($PRODUCTOS);
                         mostrarTramite($PAISES, $PROVINCIAS, $MUNICIPIOS,$TIPOS_VIA);
                         mostrarFallosCampos($camposErroneos);
                     }else{

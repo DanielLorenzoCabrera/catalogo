@@ -1,7 +1,0 @@
-Pendientes
-
-* Averiguar por qué se pone el mismo nombre del busto a la cámara
-
-A la hora de hacer el cierre de _SESSION
-unset todas las variables de Session NO HACERLE UNSET A $_SESSION
-destroy_session();
